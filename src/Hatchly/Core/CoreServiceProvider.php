@@ -31,4 +31,9 @@ class CoreServiceProvider extends ServiceProvider {
 		return array();
 	}
 
+    public function boot()
+    {
+        include __DIR__.'/../../routes.php';
+    }
+
 }
