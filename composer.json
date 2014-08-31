@@ -23,7 +23,9 @@
         "laracasts/commander": "1.3.*"
     },
     "require-dev": {
-        "orchestra/testbench": "2.2.*"
+        "orchestra/testbench": "2.2.*",
+        "phpunit/phpunit": "*",
+        "mockery/mockery": "0.9.*"
     },
     "suggest": {
         "cartalyst/sentinel": "By default, Hatchly uses the Sentinel authentication package."

@@ -2,7 +2,7 @@
 
 use Hatchly\Core\Theme\Helper;
 
-class ThemeHelperTest extends Orchestra\Testbench\TestCase {
+class ThemeHelperTest extends TestCase {
 
     private $themeHelper;
 
@@ -40,4 +40,3 @@ class ThemeHelperTest extends Orchestra\Testbench\TestCase {
         return $this->assertEquals($viewPath, 'default-admin/bar');
     }
 }
- 
