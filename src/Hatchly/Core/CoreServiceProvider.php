@@ -12,6 +12,8 @@ class CoreServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+        $this->package('hatchly/core', 'hatchly/core');
+
         // Add the themes directory
         $this->app['view']->addLocation(app_path('themes'));
 
@@ -45,7 +47,7 @@ class CoreServiceProvider extends ServiceProvider {
            return new \Hatchly\Core\Theme\Helper;
         });
 
-        $app->singleton('Hatchly\Core\Authentication\AuthPackageInterface', 'Hatchly\Core\Authentication\Sentinel');
+        $app->singleton('Hatchly\Core\Authentication\AuthPackageInterface', $app['config']['hatchly/core::providers.authentication']);
     }
 
     private function registerAliases()

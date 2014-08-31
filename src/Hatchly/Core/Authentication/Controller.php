@@ -1,25 +1,23 @@
 <?php namespace Hatchly\Core\Authentication;
 
-use Illuminate\Support\Facades\View;
-use Laracasts\Commander\CommanderTrait;
+use Hatchly\Core\BaseController;
+use View, Theme;
 
-class Controller extends \BaseController {
-
-    use CommanderTrait;
+class Controller extends BaseController {
 
     public function login()
     {
-        return View::make('');
+        return View::make(Theme::view('authentication/login'));
     }
 
     public function doLogin()
     {
-        $this->execute(AttemptUserLoginCommand::class);
+        dd($this->execute(AttemptUserLoginCommand::class));
     }
 
     public function doLogout()
     {
-
+        dd($this->execute(UserLogoutCommand::class));
     }
 
 }
