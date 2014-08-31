@@ -1,14 +1,33 @@
-<?php  namespace Hatchly\Core\Theme; 
+<?php  namespace Hatchly\Core\Theme;
 
 class Helper {
 
-    public function asset($file = null)
+    protected $theme = null;
+
+    function __construct()
     {
-        return asset("/themes/default/{$file}");
+        $this->theme = 'default';
     }
 
+    /**
+     * Get the URL to a specified asset
+     *
+     * @param null $file
+     * @return string
+     */
+    public function asset($file = null)
+    {
+        return asset("/themes/{$this->theme}/{$file}");
+    }
+
+    /**
+     * Get the path to a view
+     *
+     * @param null $view
+     * @return string
+     */
     public function view($view = null)
     {
-        return "default/{$view}";
+        return "{$this->theme}/{$view}";
     }
 } 
