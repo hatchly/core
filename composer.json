@@ -28,5 +28,8 @@
             "Hatchly\\Core\\": "src/Hatchly/Core"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "orchestra/testbench": "2.2.*"
+    }
 }
