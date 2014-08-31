@@ -1,6 +1,7 @@
-<?php  namespace Hatchly\Core\Authentication;
+<?php  namespace Hatchly\Core\Authentication\Providers;
 
 use Cartalyst\Sentinel\Sentinel as SentinelAuth;
+use Hatchly\Core\Authentication\AuthPackageInterface;
 use Illuminate\Foundation\Application;
 
 class Sentinel implements AuthPackageInterface {
@@ -28,26 +29,26 @@ class Sentinel implements AuthPackageInterface {
 
     public function logout()
     {
-        // TODO: Implement logout() method.
+        return $this->sentinel->logout();
     }
 
     public function check()
     {
-        // TODO: Implement check() method.
+        return $this->sentinel->check();
     }
 
     public function currentUser()
     {
-        // TODO: Implement currentUser() method.
+        return $this->sentinel->getUser();
     }
 
     public function getUserById($id)
     {
-        // TODO: Implement getUserById() method.
+        return $this->sentinel->findUserById($id);
     }
 
     public function getUserByEmail($email)
     {
-        // TODO: Implement getUserByEmail() method.
+        return $this->sentinel->findUserByEmail($email);
     }
 }
