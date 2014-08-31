@@ -17,7 +17,9 @@ class CoreServiceProvider extends ServiceProvider {
 
 		$this->registerBindings();
         $this->registerAliases();
-	}
+        $this->registerDependencies();
+
+    }
 
 	/**
 	 * Get the services provided by the provider.
@@ -42,6 +44,8 @@ class CoreServiceProvider extends ServiceProvider {
         {
            return new \Hatchly\Core\Theme\Helper;
         });
+
+        $app->singleton('Hatchly\Core\Authentication\AuthPackageInterface', 'Hatchly\Core\Authentication\Sentinel');
     }
 
     private function registerAliases()
@@ -50,6 +54,11 @@ class CoreServiceProvider extends ServiceProvider {
 
         $instance->alias('Theme', 'Hatchly\Core\Theme\HelperFacade');
 
+    }
+
+    private function registerDependencies()
+    {
+        $this->app->register('Laracasts\Commander\CommanderServiceProvider');
     }
 
 }
